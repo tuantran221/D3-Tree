@@ -1,16 +1,13 @@
-import { List, ListItemButton, ListItemIcon, Button } from "@mui/material";
-import React, { useState, useEffect } from "react";
-
-
+import React from "react";
+import TaskList from "../components/TaskList";
+import Tree from "../components/D3"
+import task1 from "../components/data/task1.json"
 const Home = () => {
-
-
- 
- 
   return (
-    <div>
-     chau hoai vu
-    </div>
+  <div style={{display: "flex"}}>
+    <TaskList/>
+    <Tree task={task1} />
+  </div>
   );
 };
 export default Home;

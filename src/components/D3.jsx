@@ -1,6 +1,5 @@
 import React from "react";
 import Tree from "react-d3-tree";
-import task1 from "./data/task1.json"
 
 
 const containerStyles = {

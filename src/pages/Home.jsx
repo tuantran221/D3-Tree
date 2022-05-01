@@ -6,7 +6,7 @@ import { ListItemText } from "@mui/material";
 import task1 from "../components/data/task1.json"
 import task2 from "../components/data/task2.json"
 import task3 from "../components/data/task3.json"
-
+import Helmet from "../components/Helmet";
 // ---------------- array all json data ----------------
 const data = [task1, task2, task3]
 console.log("data", data)
@@ -21,9 +21,10 @@ const useStyles = makeStyles({
     width: 200,
     padding: "10px",
     marginTop: "90px",
-    backgroundColor: "rgb(156, 191, 238)",
+    backgroundColor: "rgb(30, 30, 30)",
     color: "rgb(240, 240, 240)",
     borderRadius: "10px",
+    // fontWeight: "1000px"
   },
   selected: {},
 });
@@ -36,44 +37,49 @@ const Home = () => {
   const [randomTask, SetTask] = useState(task1)
 
   console.log("randomtask", randomTask)
-
+//  ------- function to handle data task --------------
   const mapping2 = () =>{
-    data.map((item) =>{
-        return SetTask(item[0].children[0])
-      }
-      
-    )
+      SetTask(task2)
+    
+  }
+  const mapping1 = () =>{
+    SetTask(task1)
+  }
+  const mapping3 = () =>{
+    SetTask(task3)
   }
 
-
   return (
-  <div style={{display: "flex"}}>
+    <Helmet title="Home">
+       <div style={{display: "flex"}}>
      <div className={classes.root}>
-      <ListItem sx={{ padding: "15px" }} button >
+      <ListItem sx={{ padding: "15px", borderRadius: "10px" }} button onClick={mapping1}>
         <ListItemText primary="Task 1" />
       </ListItem>
-      <ListItem sx={{ padding: "15px" }} button onClick={mapping2}>
+      <ListItem sx={{ padding: "15px",  borderRadius: "10px"  }} button onClick={mapping2}>
         <ListItemText primary="Task 2" />
       </ListItem>
-      <ListItem sx={{ padding: "15px" }} button>
+      <ListItem sx={{ padding: "15px",  borderRadius: "10px"  }} button onClick={mapping3}>
         <ListItemText primary="Task 3" />
       </ListItem>
-      <ListItem sx={{ padding: "15px" }} button>
+      <ListItem sx={{ padding: "15px",  borderRadius: "10px"  }} button>
         <ListItemText primary="Task 4" />
       </ListItem>
       <ListItem sx={{ padding: "15px" }} button>
         <ListItemText primary="Task 5" />
       </ListItem>
-      <ListItem sx={{ padding: "15px" }} button>
+      <ListItem sx={{ padding: "15px",  borderRadius: "10px"  }} button>
         <ListItemText primary="Task 6" />
       </ListItem>
-      <ListItem sx={{ padding: "15px" }} button>
+      <ListItem sx={{ padding: "15px",  borderRadius: "10px"  }} button>
         <ListItemText primary="Task 7" />
       </ListItem>
     </div>
 
     <Tree task={randomTask} />
   </div>
+    </Helmet>
+ 
   );
 };
 export default Home;
